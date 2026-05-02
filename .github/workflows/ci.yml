@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main, production]
+  pull_request:
+    branches: [main, production]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Typecheck packages
+        run: bun run typecheck --filter="./packages/*"
+
+      - name: Build packages
+        run: bun run build --filter="./packages/*"
+
+      - name: Typecheck apps
+        run: bun run typecheck --filter="./apps/*"
+
+      - name: Build apps
+        run: bun run build --filter="./apps/*"
+
+      - name: Upload API dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-dist
+          path: apps/api/dist/
+          retention-days: 1
+
+      - name: Upload Web dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-dist
+          path: apps/web/dist/
+          retention-days: 1
