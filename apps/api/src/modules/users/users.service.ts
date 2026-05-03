@@ -1,6 +1,6 @@
 import { Injectable, Inject, NotFoundException } from '@nestjs/common';
 import { eq, and } from 'drizzle-orm';
-import { users } from '../../../../database/schema';
+import { users } from '../../../database/schema';
 import { DB_TOKEN } from '../../database/database.module';
 
 @Injectable()

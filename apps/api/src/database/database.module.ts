@@ -10,7 +10,7 @@ export const DB_TOKEN = 'DRIZZLE_DB';
       provide: DB_TOKEN,
       useFactory: async () => {
         // Lazily import to ensure env vars are loaded first
-        const { db } = await import('../../../database/db');
+        const { db } = await import('../../database/db');
         return db;
       },
     },

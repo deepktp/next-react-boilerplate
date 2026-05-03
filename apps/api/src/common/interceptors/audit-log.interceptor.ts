@@ -6,10 +6,10 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { db } from '../../../../database/db';
-import { auditLogs } from '../../../../database/schema';
 import { sanitizeForLog } from '../logger/log-utils';
 import { v4 as uuidv4 } from 'uuid';
+import { db } from 'database/db';
+import { auditLogs } from 'database/schema';
 
 const AUDITED_METHODS = new Set(['POST', 'PUT', 'PATCH', 'DELETE']);
 

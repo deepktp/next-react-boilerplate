@@ -1,7 +1,7 @@
 import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
-import { db } from '../../../../database/db';
-import { tenants } from '../../../../database/schema';
+import { db } from '../../../database/db';
+import { tenants } from '../../../database/schema';
 import { eq } from 'drizzle-orm';
 
 @Injectable()

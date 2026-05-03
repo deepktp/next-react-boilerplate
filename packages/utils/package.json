@@ -19,6 +19,7 @@
     "@app/types": "workspace:*"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "typescript": "^5.8.0"
   }
 }

@@ -20,7 +20,7 @@ import {
   roles,
   rolePermissions,
   permissions,
-} from '../../../../database/schema';
+} from '../../../database/schema';
 import { DB_TOKEN } from '../../database/database.module';
 import type { LoginDto } from './dto/login.dto';
 import type { RegisterDto } from './dto/register.dto';
